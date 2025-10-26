@@ -1,9 +1,9 @@
-import InputView from "./InputView.js";
+import RacingGame from "./RacingGame.js";
 
 class App {
   async run() {
-    const carNames = await InputView.readCarNames();
-    const tryCount = await InputView.readTryCount();
+    const game = new RacingGame();
+    await game.run();
   }
 }
 
