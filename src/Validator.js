@@ -32,6 +32,10 @@ class Validator {
 
   static validateCount(countString) {
     const trimmedString = countString.trim();
+    if (trimmedString === "") {
+      throw new Error(ERROR.COUNT_EMPTY);
+    }
+
     const tryCount = Number(trimmedString);
 
     if (isNaN(tryCount) || !Number.isInteger(tryCount)) {
