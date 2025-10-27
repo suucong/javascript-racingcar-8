@@ -59,4 +59,15 @@ describe("입력 유효성 검사 (Validator)", () => {
       }
     );
   });
+
+  describe("시도 횟수가 숫자가 아닌 경우 예외 발생", () => {
+    test.each(["a", "5회", "1.5"])(
+      "시도 횟수가 숫자가 아닌 경우, 예외 발생: %s",
+      (input) => {
+        expect(() => Validator.validateCount(input)).toThrow(
+          ERROR.COUNT_NOT_NUMBER
+        );
+      }
+    );
+  });
 });
