@@ -61,6 +61,15 @@ describe("입력 유효성 검사 (Validator)", () => {
     );
   });
 
+  describe("시도 횟수가 빈 문자열인 경우 예외 발생", () => {
+    test.each(["", " ", "\t\n"])(
+      "시도 횟수가 빈 문자열인 경우 예외 발생: %s",
+      (input) => {
+        expect(() => Validator.validateCount(input)).toThrow(ERROR.COUNT_EMPTY);
+      }
+    );
+  });
+
   describe("시도 횟수가 숫자가 아닌 경우 예외 발생", () => {
     test.each(["a", "5회", "1.5", " 5 5"])(
       "시도 횟수가 숫자가 아닌 경우, 예외 발생: %s",

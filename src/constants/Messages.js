@@ -15,4 +15,5 @@ export const ERROR = Object.freeze({
   // 시도 횟수 관련 에러
   COUNT_NOT_NUMBER: `${ERROR_PREFIX} 시도 횟수에 숫자를 입력해야합니다.`,
   COUNT_INVALID_RANGE: `${ERROR_PREFIX} 시도 횟수는 1 이상이어야 합니다.`,
+  COUNT_EMPTY: `${ERROR_PREFIX} 시도 횟수를 입력해야 합니다.`,
 });
