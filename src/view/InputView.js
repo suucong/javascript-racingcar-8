@@ -1,5 +1,5 @@
 import { Console } from "@woowacourse/mission-utils";
-import { PROMPT } from "./constants/Messages.js";
+import { PROMPT } from "../constant/Messages.js";
 
 class InputView {
   static async readCarNames() {

@@ -1,7 +1,7 @@
-import RacingGame from "./RacingGame.js";
-import InputView from "./InputView.js";
-import Validator from "./Validator.js";
-import OutputView from "./OutputView.js";
+import RacingGame from "../model/RacingGame.js";
+import InputView from "../view/InputView.js";
+import Validator from "../utils/Validator.js";
+import OutputView from "../view/OutputView.js";
 
 class RacingGameController {
   async run() {

@@ -1,4 +1,4 @@
-import Car from "../src/Car.js";
+import Car from "../src/model/Car.js";
 
 describe("Car 클래스 기능 테스트", () => {
   test("Car 객체는 이름과 초기 위치 0을 가진다.", () => {

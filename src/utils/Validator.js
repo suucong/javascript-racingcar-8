@@ -1,4 +1,4 @@
-import { ERROR } from "./constants/Messages.js";
+import { ERROR } from "../constant/Messages.js";
 
 class Validator {
   static validateAndParseNames(inputString) {

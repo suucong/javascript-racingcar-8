@@ -1,6 +1,5 @@
-import { template } from "@babel/core";
-import Validator from "../src/Validator.js";
-import { ERROR } from "../src/constants/Messages.js";
+import Validator from "../src/utils/Validator.js";
+import { ERROR } from "../src/constant/Messages.js";
 
 describe("입력 유효성 검사 (Validator)", () => {
   describe("자동차 이름 정상 파싱", () => {
