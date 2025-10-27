@@ -1,0 +1,18 @@
+import { Console } from "@woowacourse/mission-utils";
+import { OUTPUT } from "./constants/Messages.js";
+
+class OutputView {
+  static printResultTitle() {
+    Console.print(OUTPUT.RESULT_TITLE);
+  }
+
+  static printTurnResult(cars) {
+    cars.forEach((car) => {
+      const positionDisplay = OUTPUT.POSITION_MARK.repeat(car.getPosition());
+      Console.print(`${car.getName()} : ${positionDisplay}`);
+    });
+    Console.print("");
+  }
+}
+
+export default OutputView;

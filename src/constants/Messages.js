@@ -17,3 +17,9 @@ export const ERROR = Object.freeze({
   COUNT_INVALID_RANGE: `${ERROR_PREFIX} 시도 횟수는 1 이상이어야 합니다.`,
   COUNT_EMPTY: `${ERROR_PREFIX} 시도 횟수를 입력해야 합니다.`,
 });
+
+export const OUTPUT = Object.freeze({
+  RESULT_TITLE: "\n실행 결과",
+  FINAL_WINNER: "최종 우승자",
+  POSITION_MARK: "-",
+});
