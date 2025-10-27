@@ -2,11 +2,13 @@ import { ERROR } from "./constants/Messages.js";
 
 class Validator {
   static validateAndParseNames(inputString) {
-    const names = inputString.split(",").map((name) => name.trim());
+    const names = inputString
+      .split(",")
+      .map((name) => name.trim())
+      .filter((name) => name.length > 0);
 
-    const hasEmptyName = names.some((name) => name.length === 0);
-    if (hasEmptyName) {
-      throw new Error(ERROR.NAME_EMPTY);
+    if (names.length === 0) {
+      throw new Error(ERROR.NAME_COUNT);
     }
 
     const VALID_CHARACTERS = /^[a-zA-Z0-9 가-힣]*$/;
