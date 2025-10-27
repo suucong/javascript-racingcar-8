@@ -1,4 +1,4 @@
-import Car from "../Car.js";
+import Car from "../src/Car.js";
 import { Random } from "@woowacourse/mission-utils";
 
 describe("Car 클래스 기능 테스트", () => {
