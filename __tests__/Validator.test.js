@@ -1,3 +1,4 @@
+import { template } from "@babel/core";
 import Validator from "../src/Validator.js";
 import { ERROR } from "../src/constants/Messages.js";
 
@@ -61,11 +62,22 @@ describe("입력 유효성 검사 (Validator)", () => {
   });
 
   describe("시도 횟수가 숫자가 아닌 경우 예외 발생", () => {
-    test.each(["a", "5회", "1.5"])(
+    test.each(["a", "5회", "1.5", " 5 5"])(
       "시도 횟수가 숫자가 아닌 경우, 예외 발생: %s",
       (input) => {
         expect(() => Validator.validateCount(input)).toThrow(
           ERROR.COUNT_NOT_NUMBER
+        );
+      }
+    );
+  });
+
+  describe("시도 횟수가 1 미만인 경우 예외 발생", () => {
+    test.each(["0", "-10", " 0", " -5"])(
+      "시도 횟수가 1 미만인 경우, 예외 발생: %s",
+      (input) => {
+        expect(() => Validator.validateCount(input)).toThrow(
+          ERROR.COUNT_INVALID_RANGE
         );
       }
     );
