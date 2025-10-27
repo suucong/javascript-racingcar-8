@@ -11,7 +11,7 @@ describe("입력 유효성 검사 (Validator)", () => {
   test.each(["pobi,woni,toolong", "안녕나는루피", "안녕나는포비,자동차"])(
     "이름이 5자 초과인 경우, 에러를 발생시킨다: %s",
     (input) => {
-      expect(() => Validator.validateCarNames(input)).toThrow(
+      expect(() => Validator.validateAndParseNames(input)).toThrow(
         ERROR.NAME_LENGTH
       );
     }
