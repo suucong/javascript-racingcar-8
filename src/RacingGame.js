@@ -17,6 +17,21 @@ class RacingGame {
     });
   }
 
+  getWinners() {
+    let maxPosition = 0;
+    this.#cars.forEach((car) => {
+      if (car.getPosition() > maxPosition) {
+        maxPosition = car.getPosition();
+      }
+    });
+
+    const winners = this.#cars
+      .filter((car) => car.getPosition() === maxPosition)
+      .map((car) => car.getName());
+
+    return winners;
+  }
+
   getCars() {
     return this.#cars;
   }

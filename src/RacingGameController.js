@@ -20,6 +20,8 @@ class RacingGameController {
       game.runTurn();
       OutputView.printTurnResult(game.getCars());
     }
+
+    OutputView.printWinner(game.getWinners());
   }
 }
 

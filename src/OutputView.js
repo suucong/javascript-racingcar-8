@@ -13,6 +13,11 @@ class OutputView {
     });
     Console.print("");
   }
+
+  static printWinner(winners) {
+    const winnerNames = winners.join(", ");
+    Console.print(`${OUTPUT.FINAL_WINNER} : ${winnerNames}`);
+  }
 }
 
 export default OutputView;
