@@ -48,6 +48,9 @@ jun : --
 - [x] **`Car` 클래스 생성**
   - 각 자동차는 이름(name)과 현재 위치(position)을 가진다.
   - `move()` 메서드: 무작위 값이 4 이상일 경우 `position`을 +1 증가시킨다.
+- [ ] **`RacingGameController` 클래스 생성**
+  - InputView로 입력받고 Validator로 검증하는 흐름을 제어한다.
+  - 시도 횟수만큼 `RacingGame.runTurn()`을 반복 실행하는 흐름을 제어한다.
 - [ ] **`RacingGame` 클래스 생성**
   - 입력받은 자동차 목록을 기반으로 `Car` 객체 배열을 생성한다.
   - 입력받은 시도 횟수만큼 반복 실행한다.

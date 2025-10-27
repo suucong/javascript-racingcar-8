@@ -1,19 +1,20 @@
-import InputView from "./InputView.js";
-import Validator from "./Validator.js";
+import Car from "./Car.js";
 
 class RacingGame {
-  async #readGameInputs() {
-    const namesString = await InputView.readCarNames();
-    const countString = await InputView.readTryCount();
+  #cars;
+  #tryCount;
 
-    const carNames = Validator.validateAndParseNames(namesString);
-    const tryCount = Validator.validateCount(countString);
-
-    return { carNames, tryCount };
+  constructor(carNames, tryCount) {
+    this.#cars = carNames.map((name) => new Car(name));
+    this.#tryCount = tryCount;
   }
 
-  async run() {
-    const { carNames, tryCount } = await this.#readGameInputs();
+  getCars() {
+    return this.#cars;
+  }
+
+  getTryCount() {
+    return this.#tryCount;
   }
 }
 
