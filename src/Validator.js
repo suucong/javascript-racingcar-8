@@ -31,10 +31,17 @@ class Validator {
   }
 
   static validateCount(countString) {
-    const tryCount = Number(countString);
+    const trimmedString = countString.trim();
+    const tryCount = Number(trimmedString);
+
     if (isNaN(tryCount) || !Number.isInteger(tryCount)) {
       throw new Error(ERROR.COUNT_NOT_NUMBER);
     }
+
+    if (tryCount < 1) {
+      throw new Error(ERROR.COUNT_INVALID_RANGE);
+    }
+
     return tryCount;
   }
 }
