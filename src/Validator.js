@@ -9,6 +9,12 @@ class Validator {
       throw new Error(ERROR.NAME_EMPTY);
     }
 
+    const VALID_CHARACTERS = /^[a-zA-Z0-9 가-힣]*$/;
+    const hasInvalidChars = names.some((name) => !VALID_CHARACTERS.test(name));
+    if (hasInvalidChars) {
+      throw new Error(ERROR.NAME_INVALID_CHAR);
+    }
+
     const isOverFive = names.some((name) => name.length > 5);
     if (isOverFive) {
       throw new Error(ERROR.NAME_LENGTH);
