@@ -1,4 +1,3 @@
-import { template } from "@babel/core";
 import Validator from "../src/Validator.js";
 import { ERROR } from "../src/constants/Messages.js";
 
@@ -23,6 +22,15 @@ describe("입력 유효성 검사 (Validator)", () => {
     (input) => {
       expect(() => Validator.validateAndParseNames(input)).toThrow(
         ERROR.NAME_DUPLICATE
+      );
+    }
+  );
+
+  test.each(["pobi,,jun", ",pobi,woni", "pobi,suucong, ", ",,"])(
+    "이름이 빈 문자열인 경우, 에러를 발생시킨다: %s",
+    (input) => {
+      expect(() => Validator.validateAndParseNames(input)).toThrow(
+        ERROR.NAME_EMPTY
       );
     }
   );
