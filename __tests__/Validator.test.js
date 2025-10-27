@@ -61,6 +61,21 @@ describe("입력 유효성 검사 (Validator)", () => {
     );
   });
 
+  describe("시도 횟수 정상 반환", () => {
+    test.each([
+      ["5", 5],
+      [" 10 ", 10],
+      ["1", 1],
+      [" 999 ", 999],
+    ])(
+      "정상적인 정수 입력은 에러를 발생시키지 않고 숫자로 반환한다: %s",
+      (input, expected) => {
+        expect(() => Validator.validateCount(input)).not.toThrow();
+        expect(Validator.validateCount(input)).toBe(expected);
+      }
+    );
+  });
+
   describe("시도 횟수가 빈 문자열인 경우 예외 발생", () => {
     test.each(["", " ", "\t\n"])(
       "시도 횟수가 빈 문자열인 경우 예외 발생: %s",
