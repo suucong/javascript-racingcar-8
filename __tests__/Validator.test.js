@@ -26,7 +26,7 @@ describe("입력 유효성 검사 (Validator)", () => {
     }
   );
 
-  test.each(["pobi,,jun", ",pobi,woni", "pobi,suucong, ", ",,"])(
+  test.each(["pobi,,jun", ",pobi,woni", "pobi,수진, ", ",,"])(
     "이름이 빈 문자열인 경우, 에러를 발생시킨다: %s",
     (input) => {
       expect(() => Validator.validateAndParseNames(input)).toThrow(
@@ -34,4 +34,17 @@ describe("입력 유효성 검사 (Validator)", () => {
       );
     }
   );
+
+  test.each([
+    "pobi, woni!",
+    "pobi,woni@",
+    "pobi,수진#",
+    "a lice, 수진",
+    "pobi, w123-",
+    "pobi, woni\n",
+  ])("허용되지 않은 문자가 포함된 경우, 에러를 발생시킨다: %s", (input) => {
+    expect(() => Validator.validateAndParseNames(input)).toThrow(
+      ERROR.NAME_INVALID_CHAR
+    );
+  });
 });
