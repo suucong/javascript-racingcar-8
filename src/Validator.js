@@ -32,6 +32,9 @@ class Validator {
 
   static validateCount(countString) {
     const tryCount = Number(countString);
+    if (isNaN(tryCount) || !Number.isInteger(tryCount)) {
+      throw new Error(ERROR.COUNT_NOT_NUMBER);
+    }
     return tryCount;
   }
 }
