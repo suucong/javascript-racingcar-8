@@ -38,23 +38,23 @@ describe("입력 유효성 검사 (Validator)", () => {
     );
   });
 
-  describe("자동차 이름이 빈 문자열인 경우 예외 발생", () => {
-    test.each(["pobi,,jun", ",pobi,woni", "pobi,수진, ", ",,"])(
-      "이름이 빈 문자열인 경우, 에러를 발생시킨다: %s",
-      (input) => {
-        expect(() => Validator.validateAndParseNames(input)).toThrow(
-          ERROR.NAME_EMPTY
-        );
-      }
-    );
-  });
-
   describe("자동차 이름에 허용되지 않은 문자가 포함된 경우 예외 발생", () => {
     test.each(["pobi, woni!", "pobi,woni@", "pobi,수진#", "pobi, w123-"])(
       "허용되지 않은 문자가 포함된 경우, 에러를 발생시킨다: %s",
       (input) => {
         expect(() => Validator.validateAndParseNames(input)).toThrow(
           ERROR.NAME_INVALID_CHAR
+        );
+      }
+    );
+  });
+
+  describe("유효한 자동차 이름이 1개 미만인 경우 예외 발생", () => {
+    test.each(["", " ", ", ,"])(
+      "유효한 이름이 한 개도 없는 경우, 예외 발생: %s",
+      (input) => {
+        expect(() => Validator.validateAndParseNames(input)).toThrow(
+          ERROR.NAME_COUNT
         );
       }
     );
